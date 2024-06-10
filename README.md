@@ -1,5 +1,14 @@
 
 
+
+<div align="center">
+
+[![YouTube Badge](https://img.shields.io/badge/-YouTube-EA3223?style=for-the-badge&logo=youtube&logoColor=white)]([https://www.youtube.com/waterydesert](https://youtube.com/@jinntechive?si=z5smWbVs4sDfLonj))
+[![Twitter Badge](https://img.shields.io/badge/-Twitter-198CD8?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Askhalan)
+</div>
+
+<hr>
+
 # Exception Handler
 
 Exception Handler is a Dart package that provides a simple and flexible way to handle exceptions in your Dart/Flutter applications. It allows users to specify which types of exceptions they want to handle and provides customizable error messages for different exception scenarios.
@@ -79,7 +88,7 @@ Contributions to Exception Handler are welcome! If you find any bugs or have sug
 
 ## License
 
-This package is distributed under the MIT License. See the LICENSE file for more information.
+This package is distributed under the GNU License. See the LICENSE file for more information.
 
 ---
 
