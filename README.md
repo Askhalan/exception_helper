@@ -1,40 +1,86 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+# Exception Handler
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Exception Handler is a Dart package that provides a simple and flexible way to handle exceptions in your Dart/Flutter applications. It allows users to specify which types of exceptions they want to handle and provides customizable error messages for different exception scenarios.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Handle exceptions easily with a single function call.
+- Specify which types of exceptions to handle.
+- Customize error messages for different exception scenarios.
+- Lightweight and easy to integrate into your projects.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use Exception Handler in your Dart/Flutter project, add the following line to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  exception_handler: ^1.0.0
+```
+
+Then, run `dart pub get` to install the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package into your Dart file:
 
 ```dart
-const like = 'sample';
+import 'package:exception_handler/exception_handler.dart';
 ```
 
-## Additional information
+Use the `handleExceptions` function to handle exceptions in your code:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
-# exception_helper
+```dart
+void main() async {
+  try {
+    await ExceptionHandler.handleExceptions(
+      () async {
+        // Code that might cause exceptions
+        await signinWithGoogle();
+      },
+      needFirebaseAuthException: true, // Specify which exceptions to handle
+      needFirebaseException: false, // Specify other exceptions to handle
+    );
+  } catch (e) {
+    // Handle the exceptions thrown by the handleExceptions function
+    print('An exception occurred: $e');
+  }
+}
+```
+
+## Customization
+
+You can customize the behavior of the `handleExceptions` function by specifying which types of exceptions to handle and providing custom error messages for different exception scenarios.
+
+Example:
+
+```dart
+// Specify custom error messages for different exception types
+class JFirebaseAuthException implements Exception {
+  final String message;
+
+  JFirebaseAuthException(this.message);
+}
+
+// Use the handleExceptions function with custom exception handling logic
+await ExceptionHandler.handleExceptions(
+  () async {
+    // Code that might cause exceptions
+  },
+  needFirebaseAuthException: true, // Specify which exceptions to handle
+);
+```
+
+## Contributing
+
+Contributions to Exception Handler are welcome! If you find any bugs or have suggestions for improvements, please open an issue on the GitHub repository.
+
+## License
+
+This package is distributed under the MIT License. See the LICENSE file for more information.
+
+---
+
+Feel free to customize this template further to better suit your package's specific features and requirements.
